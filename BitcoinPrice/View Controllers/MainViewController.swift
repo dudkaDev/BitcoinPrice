@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  BitcoinPrice
 //
 //  Created by Андрей Абакумов on 05.11.2022.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class MainViewController: UIViewController {
+    
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var rateLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
@@ -45,24 +45,18 @@ class ViewController: UIViewController {
         
         fetchData()
     }
-
+    
     @IBAction func refreshButtonTapped(_ sender: Any) {
         
     }
+}
     
-    private func showAlert(withStatus status: Alert) {
-        let alert = UIAlertController(title: status.title, message: status.message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okAction)
-        DispatchQueue.main.async { [unowned self] in
-            present(alert, animated: true)
-        }
-    }
-    
-    private func fetchData() {
+// MARK: - Networking
+extension MainViewController {
+    func fetchData() {
         guard let url = URL(string: Link.bitcoinPriceApi.rawValue) else { return }
         
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+        URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
                 print(error?.localizedDescription ?? "No error description")
                 return
@@ -72,10 +66,10 @@ class ViewController: UIViewController {
             do {
                 let bitcoin = try decoder.decode(Bitcoin.self, from: data)
                 print(bitcoin)
-                self?.showAlert(withStatus: .success)
+                
             } catch let error {
                 print(error.localizedDescription)
-                self?.showAlert(withStatus: .failed)
+                
             }
             
         }.resume()
