@@ -22,9 +22,11 @@ struct Price: Decodable {
 }
 
 struct Currency: Decodable {
-    let rate_float: Double
+    let rateFloat: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case rateFloat = "rate_float"
+    }
 }
 
-enum Link: String {
-case bitcoinPriceApi = "https://api.coindesk.com/v1/bpi/currentprice.json"
-}
+

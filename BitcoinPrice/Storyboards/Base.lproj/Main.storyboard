@@ -35,6 +35,9 @@
                                             <segment title="USD"/>
                                             <segment title="EUR"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="currencySelection" destination="BYZ-38-t0r" eventType="valueChanged" id="8CU-in-Wck"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <constraints>
@@ -48,6 +51,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6FI-r9-65v">
+                                <rect key="frame" x="280" y="44" width="24" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -55,23 +64,29 @@
                             <constraint firstItem="8Sn-Be-Ws4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-35" id="05o-I7-9FE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8Sn-Be-Ws4" secondAttribute="trailing" constant="16" id="0gi-pf-Gog"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="n5n-uD-mBD" secondAttribute="bottom" constant="16" id="GKv-Xd-XRu"/>
+                            <constraint firstItem="6FI-r9-65v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="h9I-IM-nme"/>
                             <constraint firstItem="n5n-uD-mBD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="kis-l1-cgn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="n5n-uD-mBD" secondAttribute="trailing" constant="16" id="saW-hf-4Hq"/>
                             <constraint firstItem="8Sn-Be-Ws4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="tXV-Ux-u0l"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6FI-r9-65v" secondAttribute="trailing" constant="16" id="upq-Kp-Ldh"/>
+                            <constraint firstItem="6FI-r9-65v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="280" id="xuZ-9x-5ZX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Bitcoin" id="7Od-9C-Cqa">
                         <barButtonItem key="rightBarButtonItem" image="arrow.clockwise" catalog="system" id="b9p-h9-h8b">
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
-                                <action selector="refreshButtonTapped:" destination="BYZ-38-t0r" id="IDF-tl-UEW"/>
+                                <action selector="refreshButtonTapped:" destination="BYZ-38-t0r" id="6lV-aA-Qf8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="JUR-pF-VVc" id="Lou-JS-xqI"/>
                         <outlet property="currencySegmentedControl" destination="Vrs-Pa-HWE" id="2KO-hm-ns6"/>
+                        <outlet property="dateLabel" destination="n5n-uD-mBD" id="Y3t-O3-4mL"/>
                         <outlet property="rateLabel" destination="xrI-qQ-zJc" id="awj-UK-NWW"/>
-                        <outlet property="timeLabel" destination="n5n-uD-mBD" id="Y3t-O3-4mL"/>
+                        <outlet property="refreshButtonOutlet" destination="b9p-h9-h8b" id="sEH-DG-2VB"/>
+                        <outlet property="timerLabel" destination="6FI-r9-65v" id="y6e-fO-Whh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -99,6 +114,9 @@
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

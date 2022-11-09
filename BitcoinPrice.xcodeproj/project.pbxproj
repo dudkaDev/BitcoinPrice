@@ -14,6 +14,7 @@
 		554D0B4F2916928F00DE78EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554D0B4E2916928F00DE78EC /* Assets.xcassets */; };
 		554D0B522916928F00DE78EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554D0B502916928F00DE78EC /* LaunchScreen.storyboard */; };
 		554D0B5E291694CE00DE78EC /* Bitcoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D0B5D291694CE00DE78EC /* Bitcoin.swift */; };
+		554D0B61291A7CE200DE78EC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D0B60291A7CE200DE78EC /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		554D0B512916928F00DE78EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		554D0B532916928F00DE78EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		554D0B5D291694CE00DE78EC /* Bitcoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bitcoin.swift; sourceTree = "<group>"; };
+		554D0B60291A7CE200DE78EC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				554D0B5A2916931600DE78EC /* App */,
 				554D0B5B2916933C00DE78EC /* View Controllers */,
 				554D0B5C2916934B00DE78EC /* Models */,
+				554D0B5F291A7CC000DE78EC /* Services */,
 				554D0B592916930800DE78EC /* Storyboards */,
 				554D0B4E2916928F00DE78EC /* Assets.xcassets */,
 			);
@@ -100,6 +103,14 @@
 				554D0B5D291694CE00DE78EC /* Bitcoin.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		554D0B5F291A7CC000DE78EC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				554D0B60291A7CE200DE78EC /* NetworkManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 			files = (
 				554D0B5E291694CE00DE78EC /* Bitcoin.swift in Sources */,
 				554D0B4A2916928C00DE78EC /* MainViewController.swift in Sources */,
+				554D0B61291A7CE200DE78EC /* NetworkManager.swift in Sources */,
 				554D0B462916928C00DE78EC /* AppDelegate.swift in Sources */,
 				554D0B482916928C00DE78EC /* SceneDelegate.swift in Sources */,
 			);
