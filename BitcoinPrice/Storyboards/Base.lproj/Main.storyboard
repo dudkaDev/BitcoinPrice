@@ -18,19 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8Sn-Be-Ws4">
-                                <rect key="frame" x="16" y="189" width="288" height="120.5"/>
+                                <rect key="frame" x="16" y="215.5" width="288" height="67.5"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="JUR-pF-VVc">
-                                        <rect key="frame" x="125.5" y="0.0" width="37" height="37"/>
-                                    </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrI-qQ-zJc">
-                                        <rect key="frame" x="129" y="53" width="30" height="20.5"/>
+                                        <rect key="frame" x="129" y="0.0" width="30" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Vrs-Pa-HWE">
-                                        <rect key="frame" x="16" y="89.5" width="256" height="32"/>
+                                        <rect key="frame" x="16" y="36.5" width="256" height="32"/>
                                         <segments>
                                             <segment title="USD"/>
                                             <segment title="EUR"/>
@@ -81,7 +78,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="JUR-pF-VVc" id="Lou-JS-xqI"/>
                         <outlet property="currencySegmentedControl" destination="Vrs-Pa-HWE" id="2KO-hm-ns6"/>
                         <outlet property="dateLabel" destination="n5n-uD-mBD" id="Y3t-O3-4mL"/>
                         <outlet property="rateLabel" destination="xrI-qQ-zJc" id="awj-UK-NWW"/>

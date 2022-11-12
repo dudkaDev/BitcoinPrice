@@ -9,7 +9,6 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var rateLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var currencySegmentedControl: UISegmentedControl!
@@ -17,18 +16,17 @@ class MainViewController: UIViewController {
     @IBOutlet var refreshButtonOutlet: UIBarButtonItem!
     @IBOutlet var timerLabel: UILabel!
     
-    
+    private var spinnerView = UIActivityIndicatorView()
     private var data: Bitcoin!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = ""
-        activityIndicator.startAnimating()
-        activityIndicator.hidesWhenStopped = true
         rateLabel.isHidden = true
         dateLabel.isHidden = true
         timerLabel.isHidden = true
         
+        showSpinner(in: rateLabel)
         fetchData()
     }
     
@@ -58,18 +56,16 @@ extension MainViewController {
         NetworkManager.shared.fetchData(from: Link.bitcoinPriceApi.rawValue) { [weak self] result in
             switch result {
             case .success(let bitcoin):
-                self?.activityIndicator.isHidden = false
-                self?.activityIndicator.startAnimating()
                 self?.rateLabel.isHidden = true
                 self?.dateLabel.isHidden = true
                 self?.title = bitcoin.chartName
                 self?.dateLabel.text = bitcoin.time.updated
                 if self?.currencySegmentedControl.selectedSegmentIndex == 0 {
-                    self?.rateLabel.text = "\(bitcoin.bpi.USD.rateFloat) $"
+                    self?.rateLabel.text = "\(bitcoin.bpi.usd.rateFloat) $"
                 } else {
-                    self?.rateLabel.text = "\(bitcoin.bpi.EUR.rateFloat) €"
+                    self?.rateLabel.text = "\(bitcoin.bpi.eur.rateFloat) €"
                 }
-                self?.activityIndicator.stopAnimating()
+                self?.spinnerView.stopAnimating()
                 self?.rateLabel.isHidden = false
                 self?.dateLabel.isHidden = false
                 
@@ -97,5 +93,15 @@ extension MainViewController {
                 secondsRemaining -= 1
             }
         }
+    }
+    
+    private func showSpinner(in view: UIView) {
+        spinnerView = UIActivityIndicatorView(style: .large)
+        spinnerView.color = .gray
+        spinnerView.startAnimating()
+        spinnerView.center = view.center
+        spinnerView.hidesWhenStopped = true
+
+        view.addSubview(spinnerView)
     }
 }
